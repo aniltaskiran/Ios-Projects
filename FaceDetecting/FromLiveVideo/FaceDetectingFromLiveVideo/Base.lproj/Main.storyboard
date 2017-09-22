@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9jC-VC-uBH">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Face Detection-->
+        <scene sceneID="xZ7-1P-gne">
+            <objects>
+                <viewController id="sUm-rZ-Uzf" customClass="ViewController" customModule="Text_Detection_Starter_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g5A-07-oaV"/>
+                        <viewControllerLayoutGuide type="bottom" id="hkc-3r-lWU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uNu-gH-O9F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G3u-JN-vRh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.26579067109999999" blue="0.47340971230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hkc-3r-lWU" firstAttribute="top" secondItem="G3u-JN-vRh" secondAttribute="bottom" id="3H4-jA-QVI"/>
+                            <constraint firstItem="G3u-JN-vRh" firstAttribute="leading" secondItem="uNu-gH-O9F" secondAttribute="leading" id="6uq-lQ-8Tq"/>
+                            <constraint firstAttribute="trailing" secondItem="G3u-JN-vRh" secondAttribute="trailing" id="ENA-mR-9PL"/>
+                            <constraint firstItem="G3u-JN-vRh" firstAttribute="top" secondItem="g5A-07-oaV" secondAttribute="bottom" id="zl9-5D-Uw0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Face Detection" largeTitleDisplayMode="always" id="PXc-39-tmk"/>
+                    <connections>
+                        <outlet property="imageView" destination="G3u-JN-vRh" id="2LP-bR-Uht"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KwP-w7-o8p" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1253.5999999999999" y="138.98050974512745"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yJb-ga-FWE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9jC-VC-uBH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="v09-hc-Jv2">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.26579067109999999" blue="0.47340971230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sUm-rZ-Uzf" kind="relationship" relationship="rootViewController" id="ABM-gF-EVw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9T9-MV-oUX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="475.19999999999999" y="138.53073463268368"/>
+        </scene>
+    </scenes>
+</document>
+
