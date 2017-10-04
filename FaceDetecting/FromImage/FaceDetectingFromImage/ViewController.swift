@@ -10,23 +10,47 @@ import Vision
 
 class ViewController: UIViewController {
     
+    let images = ["sample", "termi", "wolve"]
+    var i = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        detectFace()
+        detectFace(imageName: images[i])
+    }
+    @IBAction func handleSwipeRight(_ sender: UISwipeGestureRecognizer) {
+    removeSubViews()
+    i = i + 1
+    if i == 3 {i = 0}
+    detectFace(imageName: images[i])
     }
     
-    func detectFace() {
-        guard let image = UIImage(named: "sample") else { return }
+    @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
+    removeSubViews()
+    i = i + 1
+     if i == 3 {i = 0}
+    detectFace(imageName: images[i])
+    }
+    
+    func removeSubViews(){
+        for subview in view.subviews {
+            subview.removeFromSuperview()
+        }
+    }
+        
+    func detectFace(imageName: String) {
+        guard let image = UIImage(named: imageName) else { return }
         
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         
         let scaledHeight = view.frame.width / image.size.width * image.size.height
+        let yForImageView = self.view.frame.height/2 - scaledHeight/2
         
-        imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: scaledHeight)
+        imageView.frame = CGRect(x:0, y: yForImageView, width: view.frame.width, height: scaledHeight)
         
         
         view.addSubview(imageView)
+        
+        // import Vision
         
         let request = VNDetectFaceRectanglesRequest { (req, err) in
             if let err = err {
@@ -51,7 +75,7 @@ class ViewController: UIViewController {
                 let redView = UIView()
                 redView.backgroundColor = .red
                 redView.alpha = 0.4
-                redView.frame = CGRect(x: x, y: y, width: width, height: height)
+                redView.frame = CGRect(x: x, y: y + yForImageView, width: width, height: height)
                 self.view.addSubview(redView)
             })
             
